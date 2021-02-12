@@ -56,13 +56,14 @@ After which we apply the acl to the interfaces:
 (after you get access to asdm, you can safely change these rules by making them more stringent, for now we are permit everything so that no problems arise)
 ---
 ## 3. Create user for logining and communicate with asdm
-< username test password 123 privilege 15>
+        username test password 123 privilege 15>
 Then allow authorization and authentication otherwise asa, even with the correct data, will not let you inside:
-< aaa authentication http console LOCAL
-aaa authentication enable console LOCAL
-aaa authentication ssh console LOCAL
-aaa authentication serial console LOCAL
-aaa authorization command LOCAL >
+
+        aaa authentication http console LOCAL
+        aaa authentication enable console LOCAL
+        aaa authentication ssh console LOCAL
+        aaa authentication serial console LOCAL
+        aaa authorization command LOCAL 
 ---
 ## 4. Enable http server and preparing asdm image
 
