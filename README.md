@@ -2,7 +2,8 @@
 Connect ASDM to Cisco ASA
 
 Hello everyone who reads this article. Dedicated to those who use the pirate cisco asa and / or those who have difficulties in connecting asdm and already about 100 times ask themselves the question - "how to make it work!???". Therefore, here is a detailed, step-by-step guide on how to connect cisco asa and asdm.
-My system configurations: 
+
+## My system configurations: 
 
 asdm 7.1-15-100
 Cisco Adaptive Security Appliance Software Version 9.1(5)16 
@@ -13,8 +14,8 @@ Unetlab and after testing on gns3
 
 ! Java 6 version! asdm not work properly with latest java environment
 
-1. Let`s Begin 
-1. Create interfaces (you must know how do it, i just leave here my configuring inerfaces)
+## 1. Let`s Begin 
+Create interfaces (you must know how do it, i just leave here my configuring inerfaces)
 
 interface Ethernet0
  duplex full
@@ -28,7 +29,7 @@ interface Ethernet1
  security-level 0
  ip address dhcp
 
-2. Allow icmp
+## 2. Allow icmp
 
 ASA in some cases does not ping your server and at the same time during a ping it gives you ????? which means that icmp packets unknown 
 
@@ -46,7 +47,7 @@ access-group allow_icmp out interface inside
 
 (after you get access to asdm, you can safely change these rules by making them more stringent, for now we are permit everything so that no problems arise)
 
-3. Create user for logining and communicate with asdm
+## 3. Create user for logining and communicate with asdm
 
 username test password 123 privilege 15
  
@@ -58,7 +59,7 @@ aaa authentication ssh console LOCAL
 aaa authentication serial console LOCAL
 aaa authorization command LOCAL
 
-4. Enable http server and preparing asdm image
+## 4. Enable http server and preparing asdm image
 
 copy ftp://hope:dust@178.90.125.15/asdm-715-100.bin flash:
 
@@ -68,13 +69,13 @@ http server enable
 
 http 192.168.1.0 255.255.255.0 inside - specify FROM which network will be allowed access to which interface 
 
-5. Configuring host machine 
+## 5. Configuring host machine 
 
 You need to download java 6 version with asdm 100% work properly. 
 
 Install java environment and now we ready to try. 
 
-6. Cherished moment 
+## 6. Cherished moment 
 
 Open your browser and type your cisco asa address: (https required!)
 
