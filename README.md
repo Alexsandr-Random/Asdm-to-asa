@@ -5,28 +5,37 @@ Hello everyone who reads this article. Dedicated to those who use the pirate cis
 ## My system configurations: 
 
 asdm 7.1-15-100
+
 Cisco Adaptive Security Appliance Software Version 9.1(5)16 
 
 Host from which cisco asa will be controlled - Windows Server 2012 (just because) you can use any windows system win7 for example) 
 
 Unetlab and after testing on gns3 
 
-! Java 6 version! asdm not work properly with latest java environment
----
+### ! Java 6 version! asdm not work properly with latest java environment
+
 ## 1. Let`s Begin 
 Create interfaces (you must know how do it, i just leave here my configuring inerfaces)
 
-  interface Ethernet0
-  duplex full
-  nameif inside
-  security-level 100
-  ip address 192.168.1.1 255.255.255.0
+    interface Ethernet0
+  
+    duplex full
+  
+    nameif inside
+  
+    security-level 100
+  
+    ip address 192.168.1.1 255.255.255.0
 
- interface Ethernet1
-  duplex full
-  nameif outside
-  security-level 0
-  ip address dhcp
+    interface Ethernet1
+ 
+    duplex full
+  
+    nameif outside
+  
+    security-level 0
+  
+    ip address dhcp
 
 ---
 ## 2. Allow icmp
